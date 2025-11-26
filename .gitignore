@@ -1,0 +1,45 @@
+# Arquivos de compilação
+*.class
+*.jar
+*.war
+*.ear
+
+# Pastas de build
+target/
+build/
+out/
+bin/
+
+# Arquivos do IDE
+.idea/
+*.iml
+*.ipr
+*.iws
+
+# Arquivos do Eclipse
+.settings/
+.project
+.classpath
+
+# Arquivos de sistema
+.DS_Store
+Thumbs.db
+
+# Arquivos de ambiente
+.env
+*.properties
+
+# Logs
+*.log
+logs/
+
+# Arquivos do Maven
+dependency-reduced-pom.xml
+maven-*.xml
+mvnw
+mvnw.cmd
+# Resources
+
+src/main/resources/application-dev.yml
+src/main/resources/keyprivate.pem
+src/main/resources/keypublic.pem

@@ -1,0 +1,15 @@
+server:
+  port: 8082
+
+spring:
+  application:
+    name: validationCNPJ
+  profiles:
+    active: dev
+  kafka:
+    consumer:
+      bootstrap-servers: localhost:9092
+      group-id: meu-grupo
+      auto-offset-reset: earliest
+      kafka.consumer.key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      kafka.consumer.value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
