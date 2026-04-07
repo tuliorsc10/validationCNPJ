@@ -5,11 +5,19 @@ spring:
   application:
     name: validationCNPJ
   profiles:
-    active: dev
+    active: kafka
   kafka:
     consumer:
       bootstrap-servers: localhost:9092
       group-id: meu-grupo
       auto-offset-reset: earliest
-      kafka.consumer.key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
-      kafka.consumer.value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+
+feign:
+  client:
+    config:
+      default:
+        connectTimeout: 5000
+        readTimeout: 5000
+        loggerLevel: full
