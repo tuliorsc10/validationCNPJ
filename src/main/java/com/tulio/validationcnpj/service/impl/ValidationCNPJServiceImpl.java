@@ -1,7 +1,7 @@
 package com.tulio.validationcnpj.service.impl;
 
+import com.seuprojeto.common.consumer.dto.MessageWrapper;
 import com.tulio.validationcnpj.config.FeignApiBrasilClient;
-import com.tulio.validationcnpj.configuration.kafka.dto.MessageWrapper;
 import com.tulio.validationcnpj.dto.CompanyResponse;
 import com.tulio.validationcnpj.service.ValidationCNPJService;
 import feign.FeignException;
@@ -18,7 +18,7 @@ public class ValidationCNPJServiceImpl implements ValidationCNPJService {
 
     @Override
     public void validation(MessageWrapper<String> message) {
-        log.info("Messag received: {}", message);
+        log.info("Message received: {}", message);
         try {
             CompanyResponse response = feignApiBrasilClient.getCNPJ(message.getPayload());
             log.info("Received response of the ApiBrasil: {}", response);

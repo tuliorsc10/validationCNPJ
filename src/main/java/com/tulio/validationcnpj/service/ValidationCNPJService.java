@@ -1,6 +1,6 @@
 package com.tulio.validationcnpj.service;
 
-import com.tulio.validationcnpj.configuration.kafka.dto.MessageWrapper;
+import com.seuprojeto.common.consumer.dto.MessageWrapper;
 
 public interface ValidationCNPJService {
     void validation(MessageWrapper<String> message);

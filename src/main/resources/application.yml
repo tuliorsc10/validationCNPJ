@@ -5,14 +5,25 @@ spring:
   application:
     name: validationCNPJ
   profiles:
-    active: kafka
+    active: dev
   kafka:
     consumer:
       bootstrap-servers: localhost:9092
-      group-id: meu-grupo
-      auto-offset-reset: earliest
-      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
-      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      group-id: my-group
+  amqp:
+    deserialization:
+      trust:
+        all: true
+
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: admin
+    password: admin
+    listener:
+      simple:
+        message-converter:
+          trusted-packages: com.seuprojeto.common.consumer.dto.MessageWrapper
 
 feign:
   client:
@@ -21,3 +32,8 @@ feign:
         connectTimeout: 5000
         readTimeout: 5000
         loggerLevel: full
+
+messaging:
+  type: kafka
+  rabbit:
+    exchange: minhaexchange
